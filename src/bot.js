@@ -4,13 +4,10 @@ const { registerCommands, registerEvents } = require("./utils/registry");
 const client = new Client();
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://thefoamer:Dagmaalhof22@discordbot.bypfh.gcp.mongodb.net/botmusic?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.DISCORD_BOT_PREFIX, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 (async () => {
   client.commands = new Map();
